@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 🎬 Video Modal (Single Link)
+  // Video Modal (Single Link)
   const videoLink = document.querySelector(".header__btns .video-trigger");
   const modal = document.getElementById("videoModal");
   const closeBtn = document.querySelector(".close");
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🎥 Video Popup (Multiple Triggers)
+  // Video Popup (Multiple Triggers)
   const triggers = document.querySelectorAll(".video-trigger");
   const popup = document.getElementById("videoPopup");
   const iframe = document.getElementById("youtubeFrame");
@@ -39,38 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const videoId = trigger.getAttribute("data-video-id");
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&rel=0`;
         popup.style.display = "flex";
+        document.body.style.overflow = "hidden"; // prevent scroll
       });
     });
 
     vcloseBtn.addEventListener("click", () => {
       iframe.src = "";
       popup.style.display = "none";
+      document.body.style.overflow = ""; // restore scroll
     });
   }
 
-  // 🍔 Mobile Menu Toggle
-  const menuBtn = document.getElementById("menu-btn");
-  const navLinks = document.getElementById("nav-links");
-
-  if (menuBtn && navLinks) {
-    const menuBtnIcon = menuBtn.querySelector("i");
-
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      const isOpen = navLinks.classList.contains("open");
-      menuBtnIcon.setAttribute(
-        "class",
-        isOpen ? "ri-close-line" : "ri-menu-line"
-      );
-    });
-
-    navLinks.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuBtnIcon.setAttribute("class", "ri-menu-line");
-    });
-  }
-
-  // 🔐 Auth Modal Logic
+  // Auth Modal Logic
   const toggleBtn = document.getElementById("auth-toggle");
   const closeAuthBtn = document.getElementById("auth-close");
   const backdrop = document.getElementById("auth-backdrop");
@@ -108,7 +88,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     signInBtn.addEventListener("click", () => {
       authWrapper.classList.remove("auth-active");
-      toggleBtn.textContent = "Signed In";
     });
   }
+
+  //Register through mobile nav
+  document
+    .getElementById("mobile-register")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("auth-toggle").click();
+    });
 });
