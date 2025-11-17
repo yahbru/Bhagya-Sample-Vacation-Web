@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <title>Bhagya's travel website</title>
-    <link rel="icon" href="https://icon-library.com/images/airplane-png-icon/airplane-png-icon-25.jpg">
+    <link rel="icon" href="flight-takeoff-fill.png">
   </head>
   <body>
     <nav>
@@ -26,11 +26,11 @@
       </div>
       <ul class="nav__links" id="nav-links">
         <li><a href="#home">HOME</a></li>
-        <li><a href="#popular">POPULAR</a></li>
-        <li><a href="#tour">WHY PICK US?</a></li>
-        <li><a href="#testemonials">TESTEMONIALS</a></li>
+        <li><a href="#most">POPULAR</a></li>
+        <li><a href="#why">WHY PICK US?</a></li>
+        <li><a href="#tsts">TESTEMONIALS</a></li>
         <li><a href="#contact">CONTACT</a></li>
-        <li><a href="#">REGISTER NOW</a></li>
+        <li><a href="#" id="mobile-register">REGISTER NOW</a></li>
       </ul>
       <div class="nav__btns">
         <button class="btn" id="auth-toggle">REGISTER NOW</button>
@@ -68,19 +68,19 @@
     </header>
 
     <section class="section__container destination__container" id="popular">
-      <h2 class="section__header">Most Popular!</h2>
+      <h2 class="section__header" id="most">Most Popular!</h2>
       <p class="section__description">
         Discover the Most Loved Destinations Around the Globe
       </p>
       <div class="destination__grid">
         <div class="destination__card">
           <a>
-            <img src="https://webdesignmastery.github.io/Skywings_17-08-24/assets/destination-1.jpg" alt="destination" class="video-trigger" data-video-id="L0xZ-zOfETY"/>
+            <img src="https://th.bing.com/th/id/R.e78ca08f8fb7b92ef7a6c206e99893fd?rik=mV9bNnL982qu8w&pid=ImgRaw&r=0" alt="destination" class="video-trigger" data-video-id="MhNKRw-t-i8"/>
           </a>
           <div class="destination__card__details">
             <div>
               <h4>Tradition and Futurism</h4>
-              <p>New York City, USA</p>
+              <p>Dubai, UAE</p>
             </div>
             <div class="destination__rating">
               <span><i class="ri-star-fill"></i></span>
@@ -90,7 +90,7 @@
         </div>
         <div class="destination__card">
           <a>
-            <img src="https://webdesignmastery.github.io/Skywings_17-08-24/assets/destination-2.jpg" alt="destination" class="video-trigger" data-video-id="6JAESY0by04"/>
+            <img src="https://s1.1zoom.me/big3/487/Sky_Evening_France_Eiffel_Tower_Paris_From_above_520603_5416x3611.jpg" alt="destination" class="video-trigger" data-video-id="6JAESY0by04"/>
           </a>
           <div class="destination__card__details">
             <div>
@@ -105,7 +105,7 @@
         </div>
         <div class="destination__card">
           <a>
-            <img src="https://webdesignmastery.github.io/Skywings_17-08-24/assets/destination-3.jpg" alt="destination" class="video-trigger" data-video-id="zHcr32gRRCs" />
+            <img src="https://wallpaperaccess.com/full/2873370.jpg" alt="destination" class="video-trigger" data-video-id="zHcr32gRRCs" />
           </a>
           <div class="destination__card__details">
             <div>
@@ -130,7 +130,7 @@
     </section>
 
     <section class="section__container journey__container" id="tour">
-      <h2 class="section__header">Journey To The Sky Made Simple!</h2>
+      <h2 class="section__header" id="why">Journey To The Sky Made Simple!</h2>
       <p class="section__description">
         Effortless Planning for Your Next Adventure
       </p>
@@ -261,7 +261,7 @@
     </section>
 
     <section class="section__container client__container" id="testemonials">
-      <h2 class="section__header">Loved By Thousands of Travelers</h2>
+      <h2 class="section__header" id="tsts">Loved By Thousands of Travelers</h2>
       <p class="section__description">
         Discover the stories of wanderlust and cherished memories through the
         eyes of our valued clients.
@@ -337,7 +337,7 @@
               <div class="client__details">
                 <img src="https://webdesignmastery.github.io/Skywings_17-08-24/assets/client-3.jpg" alt="client" />
                 <div>
-                  <h4></h4>
+                  <h4>Leah Kim</h4>
                   <h5>Cultural Historian</h5>
                 </div>
               </div>
@@ -372,7 +372,7 @@
       </div>
     </section>
 
-    <footer id="contact">
+    <footer>
       <div class="section__container footer__container">
         <div class="footer__col">
           <div class="footer__logo">
@@ -408,7 +408,7 @@
           </ul>
         </div>
         <div class="footer__col">
-          <h4>Contact Us</h4>
+          <h4 id="contact">Contact Us</h4>
           <ul class="footer__links">
             <li>
               <a href="#">
@@ -455,12 +455,6 @@
   </div>
 
 
-
-
-  <script src="main.js"></script>
-  
-  
-  
   
   
   <div class="auth-wrapper" id="auth-wrapper">
@@ -491,7 +485,7 @@
         <input type="email" placeholder="Email" required />
         <input type="password" placeholder="Password" required/>
         <a href="#">Forgot your password?</a>
-        <button>Sign In</button>
+        <button id="sgnauth">Sign In</button>
       </form>
     </div>
     <div class="auth-overlay-wrapper">
@@ -517,6 +511,31 @@
 
 
 
+  <script>
+  const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  if (menuBtn && navLinks) {
+    const menuBtnIcon = menuBtn.querySelector("i");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      const isOpen = navLinks.classList.contains("open");
+      menuBtnIcon.setAttribute(
+        "class",
+        isOpen ? "ri-close-line" : "ri-menu-line"
+      );
+    });
+
+    navLinks.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtnIcon.setAttribute("class", "ri-menu-line");
+    });
+  }
+  </script>
+
+  
+    
   <script src="main.js"></script>
   </body>
 </html>
