@@ -249,6 +249,7 @@ header::before {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 1;
+  aspect-ratio: 4.5 / 2.75;
 }
 
 .destination__card__details {
@@ -281,7 +282,9 @@ header::before {
 }
 
 .destination__card:hover .destination__rating {
-  background-color: var(--primary-color-dark);
+  background-color: var(--white);
+  color: var(--primary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .journey__grid {
@@ -334,6 +337,7 @@ header::before {
 
 .journey__card:hover .journey__card__content {
   top: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .journey__card__content span {
@@ -415,6 +419,7 @@ header::before {
 .banner__card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: 0.4s;
 }
 
 .banner__card h4 {
@@ -477,6 +482,7 @@ header::before {
 
 .client__card:hover {
   background-color: var(--primary-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .client__content {
@@ -1146,4 +1152,24 @@ button[type="submit"] {
     top: 0.75rem;
     right: 0.75rem;
   }
+}
+
+#most:target {
+  color: var(--primary-color);
+  transition: 2.5s;
+}
+
+#why:target {
+  color: var(--primary-color);
+  transition: 2.5s;
+}
+
+#tsts:target {
+  color: var(--primary-color);
+  transition: 2.5s;
+}
+
+#contact:target {
+  color: var(--primary-color);
+  transition: 3s;
 }
